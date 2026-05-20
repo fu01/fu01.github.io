@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Windows启用长路径</title>
+    <link href="/2026/05/21/Windows%E5%90%AF%E7%94%A8%E9%95%BF%E8%B7%AF%E5%BE%84/"/>
+    <url>/2026/05/21/Windows%E5%90%AF%E7%94%A8%E9%95%BF%E8%B7%AF%E5%BE%84/</url>
+    
+    <content type="html"><![CDATA[<h2 id="3-通过组策略编辑器进行设置-需要-Windows-专业版"><a href="#3-通过组策略编辑器进行设置-需要-Windows-专业版" class="headerlink" title="3. 通过组策略编辑器进行设置 (需要 Windows 专业版)"></a><strong>3. 通过组策略编辑器进行设置 (需要 Windows 专业版)</strong></h2><p>(1). 使用 <code>Windows键 + R</code> 组合键调出 <code>运行</code> 窗口，输入 <code>gpedit.msc</code> 启动组策略编辑器<br>(2). 按以下路径选择配置项，开启长路径功能<br>英文路径:</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Computer Configuration &gt; Administrative Templates &gt; System &gt; <br>Filesystem &gt; Enable Win32 long paths<br></code></pre></td></tr></table></figure><p>中文路径:</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">计算机配置 &gt; 管理模板 &gt; 系统 &gt; 文件系统 &gt; 启用 Win32 长路径<br></code></pre></td></tr></table></figure><p>(3). 重启计算机</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>windows</tag>
+      
+      <tag>设置</tag>
+      
+      <tag>组策略</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
