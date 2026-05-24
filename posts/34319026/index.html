@@ -19,23 +19,24 @@
   <meta name="author" content="Fu01">
   <meta name="keywords" content="">
   
-    <meta name="description" content="创建虚拟环境 指令格式： python -m venv 目录名 启动环境指令： 12345windows:目录名\Scripts\activateLinux:source .&#x2F;目录名&#x2F;bin&#x2F;activate 退出指令： 1deactivate 注释  单行注释以 # 开头。 多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。  数据类型  变量赋值时">
+    <meta name="description" content="通过组策略编辑器进行设置 (需要 Windows 专业版) (1). 使用 Windows键 + R 组合键调出 运行 窗口，输入 gpedit.msc 启动组策略编辑器 (2). 按以下路径选择配置项，开启长路径功能 英文路径: 12Computer Configuration &gt; Administrative Templates &gt; System &gt; Filesys">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 基础">
-<meta property="og:url" content="https://fu01.github.io/2026/05/22/python-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="Windows启用长路径">
+<meta property="og:url" content="https://fu01.github.io/posts/34319026/index.html">
 <meta property="og:site_name" content="Fu01 自学记录">
-<meta property="og:description" content="创建虚拟环境 指令格式： python -m venv 目录名 启动环境指令： 12345windows:目录名\Scripts\activateLinux:source .&#x2F;目录名&#x2F;bin&#x2F;activate 退出指令： 1deactivate 注释  单行注释以 # 开头。 多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。  数据类型  变量赋值时">
+<meta property="og:description" content="通过组策略编辑器进行设置 (需要 Windows 专业版) (1). 使用 Windows键 + R 组合键调出 运行 窗口，输入 gpedit.msc 启动组策略编辑器 (2). 按以下路径选择配置项，开启长路径功能 英文路径: 12Computer Configuration &gt; Administrative Templates &gt; System &gt; Filesys">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-22T04:13:48.000Z">
-<meta property="article:modified_time" content="2026-05-23T15:08:11.696Z">
+<meta property="article:published_time" content="2026-05-20T17:20:01.000Z">
+<meta property="article:modified_time" content="2026-05-22T01:41:55.685Z">
 <meta property="article:author" content="Fu01">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="软件">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="组策略">
+<meta property="article:tag" content="设置">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>python 基础 - Fu01 自学记录</title>
+  <title>Windows启用长路径 - Fu01 自学记录</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -334,7 +335,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="python 基础"></span>
+            <span id="subtitle" data-typed-text="Windows启用长路径"></span>
           
         </div>
 
@@ -345,8 +346,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-22 12:13" pubdate>
-          2026年5月22日 中午
+        <time datetime="2026-05-21 01:20" pubdate>
+          2026年5月21日 凌晨
         </time>
       </span>
     
@@ -357,7 +358,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          253 字
         
       </span>
     
@@ -368,7 +369,7 @@
         
         
         
-          14 分钟
+          3 分钟
         
       </span>
     
@@ -407,61 +408,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">python 基础</h1>
+            <h1 id="seo-header">Windows启用长路径</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="创建虚拟环境">创建虚拟环境</h2>
-<p>指令格式： <code>python -m venv 目录名</code></p>
-<p>启动环境指令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">windows:<br>目录名\Scripts\activate<br><br>Linux:<br>source ./目录名/bin/activate<br></code></pre></td></tr></table></figure>
-<p>退出指令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">deactivate<br></code></pre></td></tr></table></figure>
-<h2 id="注释">注释</h2>
-<blockquote>
-<p>单行注释以 # 开头。</p>
-<p>多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。</p>
-</blockquote>
-<h2 id="数据类型">数据类型</h2>
-<blockquote>
-<p>变量赋值时自动判断数值的类型。</p>
-<p>变量后可以加冒号:
-指定类型。（但指定int，赋值str也能正常运行。这是给IDE和自己看的。）</p>
-</blockquote>
-<h3 id="number数字">Number（数字）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs code">age: int = 256<br></code></pre></td></tr></table></figure>
-<h3 id="string字符串">String（字符串）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs code">name: str = &quot;isaac&quot;<br></code></pre></td></tr></table></figure>
-<h3 id="bool布尔类型">bool（布尔类型）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">is_empty: bool = True<br>is_empty: bool = False<br></code></pre></td></tr></table></figure>
-<h3 id="list列表">List（列表）</h3>
-<blockquote>
-<p>可变，有序，元素可重复</p>
-<p>元素类型支持数字，字符串，列表等等。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">users: list = []<br>users: list = [&quot;102&quot;, &quot;xiaoming&quot;, &quot;Tac&quot;]<br></code></pre></td></tr></table></figure>
-<h3 id="tuple元组">Tuple（元组）</h3>
-<blockquote>
-<p>不可变，有序。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs code">tup: tuple = ()<br>tup: tuple = (&quot;name&quot;, ) # 单个元素必须后面加一个, 否则解释器会识别为str类型。<br>tup: tuple = (&quot;name&quot;, &quot;opop&quot;, 89897)<br></code></pre></td></tr></table></figure>
-<h3 id="set集合">Set（集合）</h3>
-<blockquote>
-<p>无序，元素唯一（自动去重）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">empty_set: set = set() # 空集合必须使用set(), 否则会被识别为dict类型<br>ports_num: set = &#123;&quot;name&quot;, 5984, &quot;txt&quot;, 99&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="dictionary字典">Dictionary（字典）</h3>
-<blockquote>
-<p>键值对，键唯一且不可变</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs code">server: dict = &#123;&quot;host&quot;: &quot;127.0.0.1&quot;, &quot;port&quot;: 8080, &quot;secure&quot;: True&#125;<br>user:dict = dict(name=&quot;isaac&quot;, age=26, city=&quot;BeiJing&quot;)<br><br># 创建空字典<br>empty_dict1: dict = &#123;&#125;<br>empty_dict2: dict = dict()<br><br># 元组列表转换为字典<br>kv_pairs:list = [(&quot;status&quot;, 200), (&quot;msg&quot;, &quot;OK&quot;), (&quot;version&quot;, &quot;v1.0&quot;)]<br>api_response: dict = dict(kv_pairs)<br></code></pre></td></tr></table></figure>
-<h2 id="额外">额外</h2>
-<blockquote>
-<p>语法糖切片，格式：<strong>object[start:stop:step]</strong></p>
-<p>支持类型：List, String, Tuple。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs code">nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br><br># 基础写法<br>print(nums[1:4]) # [1, 2, 3]<br><br># 省略写法<br>print(nums[:3]) # [0, 1, 2]<br>print(nums[7:]) # [7, 8, 9]<br>print(nums[:]) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br><br># 步长控制<br>print(nums[1:8:2]) # [1, 3, 5, 7]<br>print(nums[::3]) # [0, 3, 6, 9]<br><br># 负数索引<br>print(nums[-3:]) # [7, 8, 9]<br>print(nums[2:-2]) #[2, 3, 4, 5, 6, 7]<br><br># 负数步长 （翻转）<br>print(nums[::-1]) # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]<br>print(nums[8:2:-2]) # [8, 6, 4]<br></code></pre></td></tr></table></figure>
+                <h2
+id="通过组策略编辑器进行设置-需要-windows-专业版"><strong>通过组策略编辑器进行设置
+(需要 Windows 专业版)</strong></h2>
+<p>(1). 使用 <code>Windows键 + R</code> 组合键调出 <code>运行</code>
+窗口，输入 <code>gpedit.msc</code> 启动组策略编辑器 (2).
+按以下路径选择配置项，开启长路径功能 英文路径:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Computer Configuration &gt; Administrative Templates &gt; System &gt; <br>Filesystem &gt; Enable Win32 long paths<br></code></pre></td></tr></table></figure>
+<p>中文路径:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">计算机配置 &gt; 管理模板 &gt; 系统 &gt; 文件系统 &gt; 启用 Win32 长路径<br></code></pre></td></tr></table></figure>
+<p>(3). 重启计算机</p>
 
                 
               </div>
@@ -480,7 +441,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/categories/windows/" class="category-chain-item">windows</a>
   
   
 
@@ -495,9 +456,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%BD%AF%E4%BB%B6/" class="print-no-link">#软件</a>
+        <a href="/tags/windows/" class="print-no-link">#windows</a>
       
-        <a href="/tags/python/" class="print-no-link">#python</a>
+        <a href="/tags/%E8%AE%BE%E7%BD%AE/" class="print-no-link">#设置</a>
+      
+        <a href="/tags/%E7%BB%84%E7%AD%96%E7%95%A5/" class="print-no-link">#组策略</a>
       
     </div>
   
@@ -509,8 +472,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>python 基础</div>
-      <div>https://fu01.github.io/2026/05/22/python-基础/</div>
+      <div>Windows启用长路径</div>
+      <div>https://fu01.github.io/posts/34319026/</div>
     </div>
     <div class="license-meta">
       
@@ -522,7 +485,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月22日</div>
+          <div>2026年5月21日</div>
         </div>
       
       
@@ -554,21 +517,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/05/23/%E6%9C%BA%E6%A2%B0%E5%88%B6%E5%9B%BE/" title="机械制图">
+                      <a href="/posts/9daba997/" title="测试">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机械制图</span>
+                        <span class="hidden-mobile">测试</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2026/05/22/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE-windows%E7%89%88/" title="VScode快捷键 windows版">
-                        <span class="hidden-mobile">VScode快捷键 windows版</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
