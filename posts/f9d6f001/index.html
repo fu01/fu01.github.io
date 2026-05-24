@@ -27,7 +27,7 @@
 <meta property="og:description" content="图纸幅面尺寸 基本幅面尺寸（单位：mm）    幅面代号 A0 A1 A2 A3 A4     尺寸 B*L 841*1189 594*841 420*594 297*420 210*297   边图框 a 25 25 25 25 25   边图框 c 10 10 10 5 5   边图框 e 20 20 10">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-22T17:12:18.000Z">
-<meta property="article:modified_time" content="2026-05-22T19:05:25.984Z">
+<meta property="article:modified_time" content="2026-05-24T08:00:29.279Z">
 <meta property="article:author" content="Fu01">
 <meta property="article:tag" content="CAD">
 <meta property="article:tag" content="制图">
@@ -652,6 +652,50 @@ alt="符号" />
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"fu01/fu01.github.io","repo-id":"R_kgDOSjOMjQ","category":"Announcements","category-id":"DIC_kwDOSjOMjc4C9unx","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
