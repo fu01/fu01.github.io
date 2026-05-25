@@ -1,0 +1,15 @@
+User-agent: *
+
+Allow: /
+Allow: /index.html
+Allow: /sitemap.txt
+Allow: /sitemap.xml
+
+Disallow: /css/
+Disallow: /img/
+Disallow: /js/
+Disallow: /links/
+Disallow: /xml/
+
+Sitemap: https://fu01.github.io/sitemap.xml
+Sitemap: https://fu01.github.io/sitemap.txt

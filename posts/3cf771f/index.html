@@ -19,23 +19,24 @@
   <meta name="author" content="Fu01">
   <meta name="keywords" content="">
   
-    <meta name="description" content="创建虚拟环境 指令格式： python -m venv 目录名 启动环境指令： 12345windows:目录名\Scripts\activateLinux:source .&#x2F;目录名&#x2F;bin&#x2F;activate 退出指令： 1deactivate 注释  单行注释以 # 开头。 多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。  数据类型  变量赋值时">
+    <meta name="description" content="基础    命令 描述     quit 退出当前命令视图   return 退出到用户视图   undo 取消当前设置    用户视图    命令 描述     system-view 进入系统视图    系统视图    命令 描述     sysname 指定主机名   dhcp DHCP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 基础">
-<meta property="og:url" content="https://fu01.github.io/posts/98b77d55/index.html">
+<meta property="og:title" content="H3C 指令手册">
+<meta property="og:url" content="https://fu01.github.io/posts/3cf771f/index.html">
 <meta property="og:site_name" content="Fu01 自学记录">
-<meta property="og:description" content="创建虚拟环境 指令格式： python -m venv 目录名 启动环境指令： 12345windows:目录名\Scripts\activateLinux:source .&#x2F;目录名&#x2F;bin&#x2F;activate 退出指令： 1deactivate 注释  单行注释以 # 开头。 多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。  数据类型  变量赋值时">
+<meta property="og:description" content="基础    命令 描述     quit 退出当前命令视图   return 退出到用户视图   undo 取消当前设置    用户视图    命令 描述     system-view 进入系统视图    系统视图    命令 描述     sysname 指定主机名   dhcp DHCP">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-22T04:13:48.000Z">
-<meta property="article:modified_time" content="2026-05-24T16:35:31.305Z">
+<meta property="article:published_time" content="2026-05-24T15:00:15.000Z">
+<meta property="article:modified_time" content="2026-05-25T17:43:05.823Z">
 <meta property="article:author" content="Fu01">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="软件">
+<meta property="article:tag" content="H3C">
+<meta property="article:tag" content="手册">
+<meta property="article:tag" content="指令">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>python 基础 - Fu01 自学记录</title>
+  <title>H3C 指令手册 - Fu01 自学记录</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -334,7 +335,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="python 基础"></span>
+            <span id="subtitle" data-typed-text="H3C 指令手册"></span>
           
         </div>
 
@@ -345,8 +346,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-22 12:13" pubdate>
-          2026年5月22日 中午
+        <time datetime="2026-05-24 23:00" pubdate>
+          2026年5月24日 晚上
         </time>
       </span>
     
@@ -357,7 +358,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          835 字
         
       </span>
     
@@ -368,7 +369,7 @@
         
         
         
-          24 分钟
+          7 分钟
         
       </span>
     
@@ -407,303 +408,119 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">python 基础</h1>
+            <h1 id="seo-header">H3C 指令手册</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="创建虚拟环境">创建虚拟环境</h2>
-<p>指令格式： <code>python -m venv 目录名</code></p>
-<p>启动环境指令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">windows:<br>目录名\Scripts\activate<br><br>Linux:<br>source ./目录名/bin/activate<br></code></pre></td></tr></table></figure>
-<p>退出指令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">deactivate<br></code></pre></td></tr></table></figure>
-<h2 id="注释">注释</h2>
-<blockquote>
-<p>单行注释以 # 开头。</p>
-<p>多行注释使用三个单引号 ’’’ 或三个双引号 ““” 将注释包含其中。</p>
-</blockquote>
-<h2 id="数据类型">数据类型</h2>
-<blockquote>
-<p>变量赋值时自动判断数值的类型。</p>
-<p>变量后可以加冒号:
-指定类型。（但指定int，赋值str也能正常运行。这是给IDE和自己看的。）</p>
-</blockquote>
-<h3 id="number数字">Number（数字）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs code">age: int = 256<br></code></pre></td></tr></table></figure>
-<h3 id="string字符串">String（字符串）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs code">name: str = &quot;isaac&quot;<br></code></pre></td></tr></table></figure>
-<h3 id="bool布尔类型">bool（布尔类型）</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">is_empty: bool = True<br>is_empty: bool = False<br></code></pre></td></tr></table></figure>
-<h3 id="list列表">List（列表）</h3>
-<blockquote>
-<p>可变，有序，元素可重复</p>
-<p>元素类型支持数字，字符串，列表等等。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">users: list = []<br>users: list = [&quot;102&quot;, &quot;xiaoming&quot;, &quot;Tac&quot;]<br></code></pre></td></tr></table></figure>
-<h3 id="tuple元组">Tuple（元组）</h3>
-<blockquote>
-<p>不可变，有序。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs code">tup: tuple = ()<br>tup: tuple = (&quot;name&quot;, ) # 单个元素必须后面加一个, 否则解释器会识别为str类型。<br>tup: tuple = (&quot;name&quot;, &quot;opop&quot;, 89897)<br></code></pre></td></tr></table></figure>
-<h3 id="set集合">Set（集合）</h3>
-<blockquote>
-<p>无序，元素唯一（自动去重）</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs code">empty_set: set = set() # 空集合必须使用set(), 否则会被识别为dict类型<br>ports_num: set = &#123;&quot;name&quot;, 5984, &quot;txt&quot;, 99&#125;<br></code></pre></td></tr></table></figure>
-<h3 id="dictionary字典">Dictionary（字典）</h3>
-<blockquote>
-<p>键值对，键唯一且不可变</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs code">server: dict = &#123;&quot;host&quot;: &quot;127.0.0.1&quot;, &quot;port&quot;: 8080, &quot;secure&quot;: True&#125;<br>user:dict = dict(name=&quot;isaac&quot;, age=26, city=&quot;BeiJing&quot;)<br><br># 创建空字典<br>empty_dict1: dict = &#123;&#125;<br>empty_dict2: dict = dict()<br><br># 元组列表转换为字典<br>kv_pairs:list = [(&quot;status&quot;, 200), (&quot;msg&quot;, &quot;OK&quot;), (&quot;version&quot;, &quot;v1.0&quot;)]<br>api_response: dict = dict(kv_pairs)<br></code></pre></td></tr></table></figure>
-<h2 id="类型转换">类型转换</h2>
-<h3 id="隐式类型转换">隐式类型转换</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs code">num_int = 123<br>num_float = 1.23<br>num_new = num_int + num_float #&lt;class &#x27;float&#x27;&gt;<br></code></pre></td></tr></table></figure>
-<h3 id="显示类型转换">显示类型转换</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs code">int(&quot;12&quot;) #&lt;class &#x27;int&#x27;&gt;<br>float(5)  #&lt;class &#x27;float&#x27;&gt;<br>str(667)  #&lt;class &#x27;str&#x27;&gt;<br>bool(8)   #&lt;class &#x27;bool&#x27;&gt;<br>list(&quot;abc&quot;)   #&lt;class &#x27;list&#x27;&gt;<br>tuple([1, 2]) #&lt;class &#x27;tuple&#x27;&gt;<br>set([1,2,3])  #&lt;class &#x27;set&#x27;&gt;<br>dict([(&#x27;a&#x27;, 1)]) #&lt;class &#x27;dict&#x27;&gt;<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：除了值为0，0.0，““，[]，()，{}，set()，None，其余值bool()皆返回True。</p>
-</blockquote>
-<h2 id="运算符">运算符</h2>
-<h3 id="算数运算符">算数运算符</h3>
+                <h2 id="基础">基础</h2>
 <table>
 <thead>
 <tr>
-<th>运算符</th>
+<th>命令</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>+</td>
-<td></td>
+<td>quit</td>
+<td>退出当前命令视图</td>
 </tr>
 <tr>
-<td>-</td>
-<td></td>
+<td>return</td>
+<td>退出到用户视图</td>
 </tr>
 <tr>
-<td>*</td>
-<td></td>
-</tr>
-<tr>
-<td>/</td>
-<td></td>
-</tr>
-<tr>
-<td>%</td>
-<td></td>
-</tr>
-<tr>
-<td>**</td>
-<td>a**b 相当于 a^b</td>
-</tr>
-<tr>
-<td>//</td>
-<td>取整数（往小）9//4=2， -9//4=-3</td>
+<td>undo</td>
+<td>取消当前设置</td>
 </tr>
 </tbody>
 </table>
-<h3 id="赋值运算符">赋值运算符</h3>
+<h2 id="用户视图">用户视图</h2>
 <table>
 <thead>
 <tr>
-<th>运算符</th>
+<th>命令</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>=</td>
-<td></td>
-</tr>
-<tr>
-<td>+=</td>
-<td></td>
-</tr>
-<tr>
-<td>-=</td>
-<td></td>
-</tr>
-<tr>
-<td>*=</td>
-<td></td>
-</tr>
-<tr>
-<td>/=</td>
-<td></td>
-</tr>
-<tr>
-<td>%=</td>
-<td></td>
-</tr>
-<tr>
-<td>**=</td>
-<td></td>
-</tr>
-<tr>
-<td>//=</td>
-<td></td>
-</tr>
-<tr>
-<td>:=</td>
-<td>海象运算符</td>
+<td>system-view</td>
+<td>进入系统视图</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>海象运算符可以在判断或循环的同时，将值存入变量减少重复代码。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs code">if len(my_list) &gt; 3:<br>  print(f&quot;长度为&#123;len(my_list)&#125;&quot;)<br><br># 只调用一次len<br>if (n := len(my_list)) &gt; 3:<br>  print(f&quot;长度为&#123;n&#125;&quot;)<br></code></pre></td></tr></table></figure>
-<h3 id="比较运算符">比较运算符</h3>
+<h2 id="系统视图">系统视图</h2>
 <table>
 <thead>
 <tr>
-<th>运算符</th>
+<th>命令</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>==</td>
-<td></td>
+<td>sysname</td>
+<td>指定主机名</td>
 </tr>
 <tr>
-<td>!=</td>
-<td></td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td></td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td></td>
-</tr>
-<tr>
-<td>&gt;=</td>
-<td></td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td></td>
+<td>dhcp</td>
+<td>DHCP 模块</td>
 </tr>
 </tbody>
 </table>
-<h3 id="位运算符">位运算符</h3>
+<h2 id="dhcp-地址池视图">DHCP 地址池视图</h2>
+<h2 id="详细">详细</h2>
+<pre><code class=" mermaid">stateDiagram-v2
+
+state &quot;forbidden-ip&quot; as forbidden_ip
+state &quot;ip-pool&quot; as ip_pool
+state &quot;vpn-instance&quot; as vpn_instance
+state &quot;起始地址&quot; as forbidden_ip起始地址
+state &quot;结束地址&quot; as forbidden_ip结束地址
+state &quot;DHCP池名&quot; as ip_poolDHCP池名
+state &quot;VPN示例名&quot; as forbidden_ipVPN示例名
+
+dhcp --&gt; enable
+dhcp --&gt; server
+
+enable --&gt; [*]
+
+server --&gt; forbidden_ip
+server --&gt; ip_pool
+
+ip_pool --&gt; ip_poolDHCP池名
+ip_poolDHCP池名 --&gt; [*]
+
+forbidden_ip --&gt; forbidden_ip起始地址
+forbidden_ip起始地址 --&gt; [*]
+forbidden_ip起始地址 --&gt; forbidden_ip结束地址
+forbidden_ip结束地址 --&gt;[*]
+forbidden_ip起始地址 --&gt; vpn_instance
+forbidden_ip结束地址 --&gt; vpn_instance
+vpn_instance --&gt; forbidden_ipVPN示例名
+forbidden_ipVPN示例名 --&gt; [*]
+
+</code></pre>
 <table>
 <thead>
 <tr>
-<th>运算符</th>
+<th>命令</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>&amp;</td>
-<td></td>
+<td>ip-pool</td>
+<td>创建dhcp池</td>
 </tr>
 <tr>
-<td>|</td>
-<td></td>
-</tr>
-<tr>
-<td>^</td>
-<td></td>
-</tr>
-<tr>
-<td>~</td>
-<td></td>
-</tr>
-<tr>
-<td>&lt;&lt;</td>
-<td></td>
-</tr>
-<tr>
-<td>&gt;&gt;</td>
-<td></td>
+<td>forbidden-ip</td>
+<td>指定不参与动态分配的地址范围</td>
 </tr>
 </tbody>
 </table>
-<h3 id="逻辑运算符">逻辑运算符</h3>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>and</td>
-<td></td>
-</tr>
-<tr>
-<td>or</td>
-<td></td>
-</tr>
-<tr>
-<td>not</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="成员运算符">成员运算符</h3>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>in</td>
-<td>x在y中有，返回 True</td>
-</tr>
-<tr>
-<td>not in</td>
-<td>x在y中没有，返回 True</td>
-</tr>
-</tbody>
-</table>
-<h3 id="身份运算符">身份运算符</h3>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>is</td>
-<td>x和y指向的是同一个地址，返回True</td>
-</tr>
-<tr>
-<td>is not</td>
-<td>x和y指向的是不同的地址，返回True</td>
-</tr>
-</tbody>
-</table>
-<h2 id="条件控制">条件控制</h2>
-<h3 id="if">if</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs code">if a == 20:<br>  pass<br>elif a == 30:<br>  pass<br>else:<br>  pass<br></code></pre></td></tr></table></figure>
-<h3 id="三元运算符">三元运算符</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs code">status = &quot;成年&quot; if age &gt;= 18 else &quot;未成年&quot;<br></code></pre></td></tr></table></figure>
-<h3 id="match">match</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs code">match age:<br>  case 15:<br>    pass<br>  case 20:<br>    pass<br>  case 30:<br>    pass<br>  case _:<br>    pass<br></code></pre></td></tr></table></figure>
-<h2 id="额外">额外</h2>
-<blockquote>
-<p>语法糖切片，格式：<strong>object[start:stop:step]</strong></p>
-<p>支持类型：List, String, Tuple。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs code">nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br><br># 基础写法<br>print(nums[1:4]) # [1, 2, 3]<br><br># 省略写法<br>print(nums[:3]) # [0, 1, 2]<br>print(nums[7:]) # [7, 8, 9]<br>print(nums[:]) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br><br># 步长控制<br>print(nums[1:8:2]) # [1, 3, 5, 7]<br>print(nums[::3]) # [0, 3, 6, 9]<br><br># 负数索引<br>print(nums[-3:]) # [7, 8, 9]<br>print(nums[2:-2]) #[2, 3, 4, 5, 6, 7]<br><br># 负数步长 （翻转）<br>print(nums[::-1]) # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]<br>print(nums[8:2:-2]) # [8, 6, 4]<br></code></pre></td></tr></table></figure>
-<h3 id="空语句pass">空语句pass</h3>
-<blockquote>
-<p>“代码占位符”，在没有确定函数，类，if，while等这些里面的具体写的代码。可以写个pass占着，让代码正常运行。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs code">clss User:<br>  pass<br><br>def printf():<br>  pass<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -722,7 +539,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
   
   
 
@@ -737,9 +554,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%BD%AF%E4%BB%B6/" class="print-no-link">#软件</a>
+        <a href="/tags/H3C/" class="print-no-link">#H3C</a>
       
-        <a href="/tags/python/" class="print-no-link">#python</a>
+        <a href="/tags/%E6%8C%87%E4%BB%A4/" class="print-no-link">#指令</a>
+      
+        <a href="/tags/%E6%89%8B%E5%86%8C/" class="print-no-link">#手册</a>
       
     </div>
   
@@ -751,8 +570,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>python 基础</div>
-      <div>https://fu01.github.io/posts/98b77d55/</div>
+      <div>H3C 指令手册</div>
+      <div>https://fu01.github.io/posts/3cf771f/</div>
     </div>
     <div class="license-meta">
       
@@ -764,7 +583,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月22日</div>
+          <div>2026年5月24日</div>
         </div>
       
       
@@ -796,9 +615,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/f9d6f001/" title="机械制图">
+                      <a href="/posts/15d7515e/" title="中望机械CAD使用">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机械制图</span>
+                        <span class="hidden-mobile">中望机械CAD使用</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -806,8 +625,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/d4c5e2e6/" title="VScode快捷键 windows版">
-                        <span class="hidden-mobile">VScode快捷键 windows版</span>
+                      <a href="/posts/f9d6f001/" title="机械制图">
+                        <span class="hidden-mobile">机械制图</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -909,6 +728,21 @@
 
   
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
