@@ -19,15 +19,15 @@
   <meta name="author" content="Fu01">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用的软件平台是：sd-scripts">
+    <meta name="description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-ss&#x2F;sd-scripts.gitcd sd-scriptspython -m venv venv.\venv\Scripts\activatepip install torch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI绘画 Lora制作">
 <meta property="og:url" content="https://fu01.github.io/posts/d94533ae/index.html">
 <meta property="og:site_name" content="Fu01 自学记录">
-<meta property="og:description" content="使用的软件平台是：sd-scripts">
+<meta property="og:description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-ss&#x2F;sd-scripts.gitcd sd-scriptspython -m venv venv.\venv\Scripts\activatepip install torch">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-27T16:27:27.000Z">
-<meta property="article:modified_time" content="2026-05-29T08:05:39.991Z">
+<meta property="article:modified_time" content="2026-06-10T05:01:16.271Z">
 <meta property="article:author" content="Fu01">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="lora">
@@ -358,7 +358,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          19 字
+          1.1k 字
         
       </span>
     
@@ -369,7 +369,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -417,6 +417,148 @@
 <p>使用的软件平台是：<a
 target="_blank" rel="noopener" href="https://github.com/kohya-ss/sd-scripts">sd-scripts</a></p>
 </blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-10/img.py">【检查目录下图片分辨率】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-10/img_find.py">【找寻特定分辨率的图片】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-10/wd14.py">【图片打标】</a></p>
+<h2 id="安装">安装</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs text">git clone https://github.com/kohya-ss/sd-scripts.git<br>cd sd-scripts<br><br>python -m venv venv<br>.\venv\Scripts\activate<br><br>pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124<br>pip install --upgrade -r requirements.txt<br><br>accelerate config<br></code></pre></td></tr></table></figure>
+<h2 id="数据集配置文件-config.toml">数据集配置文件 (config.toml)</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs text">[general]<br>enable_bucket = true  # 是否使用Aspect Ratio Bucketing<br><br>[[datasets]]<br>resolution = [768, 768]   # 训练分辨率<br>batch_size = 1            # 批次大小<br><br>  [[datasets.subsets]]<br>  image_dir = &#x27;E:\AI\01&#x27;      # 指定包含训练图像的文件夹<br>  caption_extension = &#x27;.txt&#x27;  # 若使用txt文件,更改此项<br>  num_repeats = 6             # 训练图像的重复次数<br>  flip_aug = true             #翻转增强<br>  shuffle_caption = true      # 随机字幕<br>  keep_tokens = 1<br>  caption_dropout_rate = 0.1  #字幕丢失率<br></code></pre></td></tr></table></figure>
+<h2 id="数据集配置">数据集配置</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image_dir</td>
+<td>“E:\01”</td>
+<td>图片目录</td>
+</tr>
+<tr>
+<td>image_count</td>
+<td>11</td>
+<td></td>
+</tr>
+<tr>
+<td>num_repeats</td>
+<td>6</td>
+<td>每张图片重复次数</td>
+</tr>
+<tr>
+<td>shuffle_caption</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>keep_tokens</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>keep_tokens_separator</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>caption_separator</td>
+<td>,</td>
+<td></td>
+</tr>
+<tr>
+<td>secondary_separator</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>enable_wildcard</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_dropout_rate</td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_dropout_every_n_epoches</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_tag_dropout_rate</td>
+<td>0.0</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_prefix</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_suffix</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>color_aug</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>flip_aug</td>
+<td>True</td>
+<td>图片翻转增强</td>
+</tr>
+<tr>
+<td>face_crop_aug_range</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>random_crop</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>token_warmup_min</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>token_warmup_step</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>alpha_mask</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>is_reg</td>
+<td>False</td>
+<td></td>
+</tr>
+<tr>
+<td>class_tokens</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>caption_extension</td>
+<td>.txt</td>
+<td>标签文件后缀</td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>

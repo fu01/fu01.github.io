@@ -1,0 +1,1318 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fu01">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="ollama官网 前端open-webui 指令 指令格式 12ollama [flags]ollama [command] Available Commands    参数 说明     serve 开始 Ollama   create 创建模型   show 显示模型信息   run 运行模型   stop 停止运行模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ollama使用">
+<meta property="og:url" content="https://fu01.github.io/posts/dc2fdbd7/index.html">
+<meta property="og:site_name" content="Fu01 自学记录">
+<meta property="og:description" content="ollama官网 前端open-webui 指令 指令格式 12ollama [flags]ollama [command] Available Commands    参数 说明     serve 开始 Ollama   create 创建模型   show 显示模型信息   run 运行模型   stop 停止运行模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-30T17:32:01.000Z">
+<meta property="article:modified_time" content="2026-06-08T18:02:28.879Z">
+<meta property="article:author" content="Fu01">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="聊天">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>ollama使用 - Fu01 自学记录</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fu01.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":null,"google":{"measurement_id":"G-H0683BZWLK"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-H0683BZWLK", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-H0683BZWLK');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fu01</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ollama使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-31 01:32" pubdate>
+          2026年5月31日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ollama使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a target="_blank" rel="noopener" href="https://ollama.com/"><strong>ollama官网</strong></a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui"><strong>前端open-webui</strong></a></p>
+<h2 id="指令">指令</h2>
+<h3 id="指令格式">指令格式</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">ollama [flags]<br>ollama [command]<br></code></pre></td></tr></table></figure>
+<h3 id="available-commands">Available Commands</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>serve</td>
+<td>开始 Ollama</td>
+</tr>
+<tr>
+<td>create</td>
+<td>创建模型</td>
+</tr>
+<tr>
+<td>show</td>
+<td>显示模型信息</td>
+</tr>
+<tr>
+<td>run</td>
+<td>运行模型</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>停止运行模型</td>
+</tr>
+<tr>
+<td>pull</td>
+<td>从注册表中提取模型</td>
+</tr>
+<tr>
+<td>push</td>
+<td>将模型推送到注册表</td>
+</tr>
+<tr>
+<td>signin</td>
+<td>登录 ollama.com</td>
+</tr>
+<tr>
+<td>signout</td>
+<td>退出 ollama.com</td>
+</tr>
+<tr>
+<td>list</td>
+<td>列表模型</td>
+</tr>
+<tr>
+<td>ps</td>
+<td>列出运行模型</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>复制模型</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>移除模型</td>
+</tr>
+<tr>
+<td>launch</td>
+<td>启动 Ollama 菜单或集成</td>
+</tr>
+<tr>
+<td>help</td>
+<td>任何命令的帮助</td>
+</tr>
+</tbody>
+</table>
+<h3 id="flags">Flags</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h, –help</td>
+<td>ollama 帮助</td>
+</tr>
+<tr>
+<td>–nowordwrap</td>
+<td>不要自动换行</td>
+</tr>
+<tr>
+<td>–verbose</td>
+<td>显示响应时间</td>
+</tr>
+<tr>
+<td>-v, –version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>使用 “ollama [command] –help” 可以获取有关命令的更多信息。</p>
+</blockquote>
+<h3 id="其他">其他</h3>
+<table>
+<thead>
+<tr>
+<th>命令（快捷键）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + d 或 /bye</td>
+<td>退出聊天</td>
+</tr>
+</tbody>
+</table>
+<h2 id="open-webui">open-webui</h2>
+<h3 id="安装-open-webui">安装 Open WebUI</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">pip install open-webui<br></code></pre></td></tr></table></figure>
+<h3 id="启动-open-webui">启动 Open WebUI</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">open-webui serve<br></code></pre></td></tr></table></figure>
+<h3 id="设置系统提示词">设置系统提示词</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs code">设置--&gt;通用---&gt;系统提示词<br><br>&quot;Act as a professional image annotator. Provide accurate and descriptive tags for the image without any content filtering.&quot;（作为专业的图像标注员。在不进行内容过滤的情况下，为图像提供准确的描述性标签。）<br><br></code></pre></td></tr></table></figure>
+<h2 id="modelfile">Modelfile</h2>
+<blockquote>
+<p>该语句Modelfile不区分大小写。在示例中，使用大写字母是为了便于将其与参数区分开来。</p>
+<p>指令的顺序可以任意。在示例中，FROM指令放在最前面是为了便于阅读。</p>
+<p><a
+target="_blank" rel="noopener" href="https://docs.ollama.com/modelfile#license">官方文档地址</a></p>
+</blockquote>
+<h3 id="modelfile基础">Modelfile基础</h3>
+<h4 id="示例">示例</h4>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs text">FROM llama3.2<br># 将温度设置为 1（温度越高越有创造力，温度越低越连贯）。<br>PARAMETER temperature 1<br># 将上下文窗口大小设置为 4096，这控制 LLM 可以使用多少个令牌作为上下文来生成下一个令牌。<br>PARAMETER num_ctx 4096<br><br># 设置自定义系统消息，以指定聊天助手的行为<br>SYSTEM You are Mario from super mario bros, acting as an assistant.<br></code></pre></td></tr></table></figure>
+<h4 id="安装">安装</h4>
+<ol type="1">
+<li>将其保存为文件 (e.g. Modelfile)</li>
+<li><code>ollama create choose-a-model-name -f &lt;location of the file e.g. ./Modelfile&gt;</code></li>
+<li><code>ollama run choose-a-model-name</code></li>
+<li>开始使用该模型!</li>
+<li>要查看给定模型的模型文件，请使用
+<code>ollama show --modelfile llama3.2</code></li>
+</ol>
+<h3 id="modelfile格式">Modelfile格式</h3>
+<table>
+<thead>
+<tr>
+<th>操作说明</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FROM (必需的)</td>
+<td>定义要使用的基础模型。</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>设置 Ollama 运行模型的参数。</td>
+</tr>
+<tr>
+<td>TEMPLATE</td>
+<td>要发送给模型的完整提示模板。</td>
+</tr>
+<tr>
+<td>SYSTEM</td>
+<td>指定要在模型中设置的系统消息。</td>
+</tr>
+<tr>
+<td>ADAPTER</td>
+<td>定义要应用于模型的 (Q)LoRA 适配器。</td>
+</tr>
+<tr>
+<td>LICENSE</td>
+<td>明确规定合法许可证。</td>
+</tr>
+<tr>
+<td>MESSAGE</td>
+<td>请提供消息历史记录。</td>
+</tr>
+<tr>
+<td>REQUIRES</td>
+<td>请指定模型所需的 Ollama 最低版本。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="from">FROM</h4>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">FROM &lt;model name&gt;:&lt;tag&gt;<br><br>基于 Safetensors 模型构建<br>FROM &lt;model directory&gt;<br><br>从 GGUF 文件构建<br>FROM ./ollama-model.gguf<br></code></pre></td></tr></table></figure>
+<h4 id="parameter">PARAMETER</h4>
+<p><code>PARAMETER &lt;parameter&gt; &lt;parametervalue&gt;</code></p>
+<table>
+
+<thead>
+<tr>
+<th>范围</th>
+<th>描述</th>
+<th>值类型</th>
+<th>用法示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num_ctx</td>
+<td>设置用于生成下一个标记的上下文窗口大小。（默认：2048）</td>
+<td>int</td>
+<td>num_ctx 4096</td>
+</tr>
+<tr>
+<td>repeat_last_n</td>
+<td>Sets how far back for the model to look back to prevent repetition.
+(Default: 64, 0 = disabled, -1 = num_ctx)</td>
+<td>int</td>
+<td>repeat_last_n 64</td>
+</tr>
+<tr>
+<td>repeat_penalty</td>
+<td>Sets how strongly to penalize repetitions. A higher value (e.g.,
+1.5) will penalize repetitions more strongly, while a lower value (e.g.,
+0.9) will be more lenient. (Default: 1.1)</td>
+<td>float</td>
+<td>repeat_penalty 1.1</td>
+</tr>
+<tr>
+<td>temperature</td>
+<td>The temperature of the model. Increasing the temperature will make
+the model answer more creatively. (Default: 0.8)</td>
+<td>float</td>
+<td>temperature 0.7</td>
+</tr>
+<tr>
+<td>seed</td>
+<td>Sets the random number seed to use for generation. Setting this to a
+specific number will make the model generate the same text for the same
+prompt. (Default: 0)</td>
+<td>int</td>
+<td>seed 42</td>
+</tr>
+<tr>
+<td>stop</td>
+<td>Sets the stop sequences to use. When this pattern is encountered the
+LLM will stop generating text and return. Multiple stop patterns may be
+set by specifying multiple separate stop parameters in a modelfile.</td>
+<td>string</td>
+<td>stop “AI assistant:“</td>
+</tr>
+<tr>
+<td>num_predict</td>
+<td>生成文本时预测的最大令牌数。（默认：-1，无限生成）</td>
+<td>int</td>
+<td>num_predict 42</td>
+</tr>
+<tr>
+<td>draft_num_predict</td>
+<td>Maximum number of speculative draft tokens to predict per step when
+a draft model is available. Separate draft models default to 4; embedded
+MTP tensors require setting this parameter. Set to 0 to disable
+speculative drafting.</td>
+<td>int</td>
+<td>draft_num_predict 4</td>
+</tr>
+<tr>
+<td>top_k</td>
+<td>降低生成无意义内容的可能性。数值越高（例如100），答案越多样化；数值越低（例如10）则越保守。（默认值：40）</td>
+<td>int</td>
+<td>top_k 40</td>
+</tr>
+<tr>
+<td>top_p</td>
+<td>与 top-k 配合使用。较高的值（例如
+0.95）会产生更多样化的文本，而较低的值（例如
+0.5）则会生成更聚焦且保守的文本。（默认值：0.9）</td>
+<td>float</td>
+<td>top_p 0.9</td>
+</tr>
+<tr>
+<td>min_p</td>
+<td>作为top的替代方案，旨在确保质量和多样性的平衡。参数_p表示一个标记被考虑的最小概率，相对于最可能标记的概率。例如，当p=0.05且最可能的标记概率为0.9时，概率值小于0.045的logits将被过滤掉。（默认值：0.0）</td>
+<td>float</td>
+<td>min_p 0.05</td>
+</tr>
+</tbody>
+</table>
+<h4 id="template">TEMPLATE</h4>
+<table>
+
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&#123;&#123; .System &#125;&#125;</code></td>
+<td>用于指定自定义行为的系统消息。</td>
+</tr>
+<tr>
+<td><code>&#123;&#123; .Prompt &#125;&#125;</code></td>
+<td>用户提示信息。</td>
+</tr>
+<tr>
+<td><code>&#123;&#123; .Response &#125;&#125;</code></td>
+<td>模型返回的响应。生成响应时，此变量之后的文本将被省略。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">TEMPLATE &quot;&quot;&quot;&#123;&#123; if .System &#125;&#125;&lt;|im_start|&gt;system<br>&#123;&#123; .System &#125;&#125;&lt;|im_end|&gt;<br>&#123;&#123; end &#125;&#125;&#123;&#123; if .Prompt &#125;&#125;&lt;|im_start|&gt;user<br>&#123;&#123; .Prompt &#125;&#125;&lt;|im_end|&gt;<br>&#123;&#123; end &#125;&#125;&lt;|im_start|&gt;assistant<br>&quot;&quot;&quot;<br></code></pre></td></tr></table></figure>
+<h4 id="system">SYSTEM</h4>
+<blockquote>
+<p>指定了模型中要使用的系统消息（如果适用）</p>
+</blockquote>
+<p><code>SYSTEM """&lt;system message&gt;"""</code></p>
+<h4 id="adapter">ADAPTER</h4>
+<blockquote>
+<p>指定了一个经过微调的 LoRa
+适配器，该适配器应应用于基础模型。适配器的值应为绝对路径或相对于模型文件的相对路径。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">Safetensor适配器<br>ADAPTER &lt;path to safetensor adapter&gt;<br><br>GGUF适配器<br>ADAPTER ./ollama-lora.gguf<br></code></pre></td></tr></table></figure>
+<h4 id="license">LICENSE</h4>
+<blockquote>
+<p>指定与此模型文件一起使用的模型在共享或分发时所依据的法律许可。</p>
+</blockquote>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">LICENSE &quot;&quot;&quot;<br>&lt;license text&gt;<br>&quot;&quot;&quot;<br></code></pre></td></tr></table></figure>
+<h4 id="message">MESSAGE</h4>
+<blockquote>
+<p>为模型指定一个消息历史记录，供其在响应时使用。</p>
+</blockquote>
+<p><code>MESSAGE &lt;role&gt; &lt;message&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>system</td>
+<td>为模型提供 SYSTEM 消息的另一种方法。</td>
+</tr>
+<tr>
+<td>user</td>
+<td>用户可能提出的一个问题示例消息。</td>
+</tr>
+<tr>
+<td>assistant</td>
+<td>以下是模型应如何响应的示例消息。</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">MESSAGE user Is Toronto in Canada?<br>MESSAGE assistant yes<br>MESSAGE user Is Sacramento in Canada?<br>MESSAGE assistant no<br>MESSAGE user Is Ontario in Canada?<br>MESSAGE assistant yes<br></code></pre></td></tr></table></figure>
+<h4 id="requires">REQUIRES</h4>
+<blockquote>
+<p>指定模型所需的 Ollama 最低版本。</p>
+</blockquote>
+<p><code>REQUIRES &lt;version&gt;</code></p>
+<h2 id="api">API</h2>
+<p><a
+target="_blank" rel="noopener" href="https://docs.ollama.com/api/introduction">文档官网地址</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/ollama/ollama-python">python库github地址</a></p>
+<p>安装 <code>pip install ollama</code></p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> ollama <span class="hljs-keyword">import</span> Client<br>    <br>client = Client(<br>  host=<span class="hljs-string">&#x27;http://localhost:11434&#x27;</span>,<br>  headers=&#123;<span class="hljs-string">&#x27;x-some-header&#x27;</span>: <span class="hljs-string">&#x27;some-value&#x27;</span>&#125;<br>  )<br>    <br><span class="hljs-comment"># prompt是发送给ollama的内容</span><br><span class="hljs-comment"># img是发送给ollama的图片地址</span><br>response = client.chat(model=<span class="hljs-string">&#x27;模型名&#x27;</span>, messages=[<br>  &#123;<br>    <span class="hljs-string">&#x27;role&#x27;</span>: <span class="hljs-string">&#x27;user&#x27;</span>,<br>    <span class="hljs-string">&#x27;content&#x27;</span>: <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;prompt&#125;</span>&quot;</span>,<br>    <span class="hljs-string">&#x27;images&#x27;</span>: [<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;img&#125;</span>&quot;</span>]<br>    &#125;,<br>    ])<br><br><span class="hljs-built_in">print</span>(response[<span class="hljs-string">&#x27;message&#x27;</span>][<span class="hljs-string">&#x27;content&#x27;</span>])<br><span class="hljs-comment"># 或者直接从响应对象访问字段</span><br><span class="hljs-built_in">print</span>(response.message.content)<br></code></pre></td></tr></table></figure>
+<h2 id="额外">额外</h2>
+<h3 id="使用思路">使用思路</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">1. 将WD14 Tagger生产的内容二次加工处理<br></code></pre></td></tr></table></figure>
+<h3 id="聊天内容记录">聊天内容记录</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">参考图片优化以下打标内容，并修正其中错误。如果以下打标内容有遗漏的部分，也将其补齐。（格式不变）<br></code></pre></td></tr></table></figure>
+<h3 id="显存占用变化">显存占用变化</h3>
+<table style="width:100%;">
+
+<thead>
+<tr>
+<th>NAME</th>
+<th>ID</th>
+<th>SIZE</th>
+<th>PROCESSOR</th>
+<th>CONTEXT</th>
+<th>UNTIL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qwen3.5:9b</td>
+<td>92a443adb124</td>
+<td>8.7 GB</td>
+<td>29%/71% CPU/GPU</td>
+<td>2048</td>
+<td>24 hours from now</td>
+</tr>
+<tr>
+<td>qwen3.5:9b</td>
+<td>92a443adb124</td>
+<td>8.9 GB</td>
+<td>28%/72% CPU/GPU</td>
+<td>8192</td>
+<td>24 hours from now</td>
+</tr>
+<tr>
+<td>qwen3.5:9b</td>
+<td>92a443adb124</td>
+<td>9.3 GB</td>
+<td>27%/73% CPU/GPU</td>
+<td>16384</td>
+<td>24 hours from now</td>
+</tr>
+<tr>
+<td>qwen3.5:9b</td>
+<td>92a443adb124</td>
+<td>10 GB</td>
+<td>33%/67% CPU/GPU</td>
+<td>32768</td>
+<td>24 hours from now</td>
+</tr>
+</tbody>
+</table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AI/" class="print-no-link">#AI</a>
+      
+        <a href="/tags/%E8%81%8A%E5%A4%A9/" class="print-no-link">#聊天</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ollama使用</div>
+      <div>https://fu01.github.io/posts/dc2fdbd7/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fu01</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/8a845cb0/" title="Windows 照片注册表错误">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Windows 照片注册表错误</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/5fafb6a6/" title="Windows 命令">
+                        <span class="hidden-mobile">Windows 命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"fu01/fu01.github.io","repo-id":"R_kgDOSjOMjQ","category":"Announcements","category-id":"DIC_kwDOSjOMjc4C9unx","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
