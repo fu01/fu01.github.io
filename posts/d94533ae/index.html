@@ -19,15 +19,15 @@
   <meta name="author" content="Fu01">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-ss&#x2F;sd-scripts.gitcd sd-scriptspython -m venv venv.\venv\Scripts\activatepip install torch">
+    <meta name="description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 【图片打标,使用GeminiAPI】 【常用标签】 【常用标签,筛选】 【tag 去重复】 【尝试让ai优化txt里的tag】 【图片缩放】 【图片尺寸修正】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI绘画 Lora制作">
 <meta property="og:url" content="https://fu01.github.io/posts/d94533ae/index.html">
 <meta property="og:site_name" content="Fu01 自学记录">
-<meta property="og:description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-ss&#x2F;sd-scripts.gitcd sd-scriptspython -m venv venv.\venv\Scripts\activatepip install torch">
+<meta property="og:description" content="使用的软件平台是：sd-scripts  【检查目录下图片分辨率】 【找寻特定分辨率的图片】 【图片打标】 【图片打标,使用GeminiAPI】 【常用标签】 【常用标签,筛选】 【tag 去重复】 【尝试让ai优化txt里的tag】 【图片缩放】 【图片尺寸修正】 安装 12345678910git clone https:&#x2F;&#x2F;github.com&#x2F;kohya-s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-27T16:27:27.000Z">
-<meta property="article:modified_time" content="2026-06-10T05:01:16.271Z">
+<meta property="article:modified_time" content="2026-06-19T14:37:33.199Z">
 <meta property="article:author" content="Fu01">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="lora">
@@ -358,7 +358,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -369,7 +369,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -423,6 +423,21 @@ target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/
 target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-10/img_find.py">【找寻特定分辨率的图片】</a></p>
 <p><a
 target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-10/wd14.py">【图片打标】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-19/wd14.py">【图片打标,使用GeminiAPI】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/other/2026-6-19/e621_sfw.csv">【常用标签】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-19/clean_csv.py">【常用标签,筛选】</a></p>
+<p><a
+target="_blank" rel="noopener" href="http://github.com/fu01/blogFile/blob/main/python/2026-6-19/txt_tag.py">【tag
+去重复】</a></p>
+<p><a
+target="_blank" rel="noopener" href="http://github.com/fu01/blogFile/blob/main/python/2026-6-19/tags_optimize.py">【尝试让ai优化txt里的tag】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-19/img_resize.py">【图片缩放】</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/fu01/blogFile/blob/main/python/2026-6-19/img_center_crop.py">【图片尺寸修正】</a></p>
 <h2 id="安装">安装</h2>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs text">git clone https://github.com/kohya-ss/sd-scripts.git<br>cd sd-scripts<br><br>python -m venv venv<br>.\venv\Scripts\activate<br><br>pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124<br>pip install --upgrade -r requirements.txt<br><br>accelerate config<br></code></pre></td></tr></table></figure>
 <h2 id="数据集配置文件-config.toml">数据集配置文件 (config.toml)</h2>
